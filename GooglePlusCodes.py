@@ -63,14 +63,21 @@ def calculateNmuber(inputY, inputX):
 
 def finalGooglePlusCode(numberList):
     googlePlusCode = ""
-    for i in numberList:
-        y = codeDigit(i[0])
-        x = codeDigit(i[1])
-        googlePlusCode = googlePlusCode + y + x
+    for i in range(5):
+        y = codeDigit(numberList[i][0])
+        x = codeDigit(numberList[i][1])
+        if i == 4:
+            googlePlusCode = googlePlusCode + "+" + y + x
+        else:
+            googlePlusCode = googlePlusCode + y + x
     
     return googlePlusCode
-    
 
+def googlePlusCodesAssemblyLine(y, x):
+    numberList = calculateNmuber(y, x)
+    googlePlusCode = finalGooglePlusCode(numberList)
+
+    return googlePlusCode
 
 
 
@@ -80,12 +87,15 @@ if __name__ == '__main__':
     print("hello world!")
     print("-----------------------------")
 
-    y = 1.2867970586693043
-    x = 103.85451499941605
+    #測試區域
+    print(googlePlusCodesAssemblyLine(1.2867970586693043, 103.85451499941605))
 
-    numberList = calculateNmuber(1.2867970586693043, 103.85451499941605)
-    googlePlusCode = finalGooglePlusCode(numberList)
-    print(googlePlusCode)
+    # y = 1.2867970586693043
+    # x = 103.85451499941605
+
+    # numberList = calculateNmuber(1.2867970586693043, 103.85451499941605)
+    # googlePlusCode = finalGooglePlusCode(numberList)
+    # print(googlePlusCode)
 
 
     #測試區域-魚尾獅噴泉 (北緯1.286785°，東經103.854503°。）
